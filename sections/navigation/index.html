@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <style>
+      /* Reset css */
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* utils classes */
+      .dropdown_wrapper {
+        position: relative;
+      }
+      .dropdown_wrapper:hover > .dropdown {
+        display: inline;
+      }
+      .dropdown {
+        /* display: none; */
+        position: absolute;
+        background: white;
+      }
+
+      /* media query */
+      @media only screen and (min-width: 769px) {
+        /* For desktop: */
+        .navigation {
+          display: inline;
+        }
+        .mobile-navigation {
+          display: none;
+        }
+      }
+      
+      @media only screen and (max-width: 768px) {
+        /* For mobile and tablet: */
+        .navigation {
+          display: none;
+        }
+        .mobile-navigation {
+          display: inline;
+        }
+      }
+
+      /* navigation classes */
+      .navigation__menu {
+        display: flex;
+        padding: 16px 32px;
+        background: #f2cdac;
+      }
+      
+      .navigation__menu__pages {
+        padding: 4px;
+        flex-grow: 1;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 80px;
+      }
+      .navigation__menu__pages__link {
+        margin: 0 16px;
+
+        font-family: serif;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: rgba(0, 0, 0, 0.74);
+      }
+      .navigation__menu__pages__link:visited {
+        color: rgba(0, 0, 0, 0.74);
+        text-decoration: underline;
+      }
+
+      .navigation__menu_social {
+        padding: 4px;
+        flex-grow: 1;
+      }
+      .navigation__menu_social__icon {
+        margin: 0 8px;
+        font-size: large;
+      }
+
+      .navigation__menu_search {
+        padding: 4px;
+        flex-grow: 1;
+        display: flex;
+        justify-content: flex-end;
+      }
+      .navigation__menu_search__icon {
+        font-size: larger;
+      }
+
+      .navigation__logo {
+        display: flex;
+        justify-content: center;
+      }
+      .navigation__logo__img {
+        margin-top: -24px;
+      }
+
+      /* mobile navigation classes */
+
+    </style>
+  </head>
+  <body>
+    <div class="navigation">
+      <div class="navigation__menu">
+        <div class="navigation__menu__pages">
+          <a class="navigation__menu__pages__link" href="#">Home</a>
+          <a class="navigation__menu__pages__link" href="#">About</a>
+          <a class="navigation__menu__pages__link" href="#">Photography</a>
+          <a class="navigation__menu__pages__link dropdown_wrapper" href="#">
+            Destinations
+            <ul class="dropdown">
+              <li>Southbank</li>
+              <li>Botanic Garden</li>
+              <li>Brisbane City</li>
+              <li>Kangaroo Point</li>
+            </ul>
+          </a>
+        </div>
+        <div class="navigation__menu_social">
+          <i class="navigation__menu_social__icon fa fa-facebook-square"></i>
+          <i class="navigation__menu_social__icon fa fa-instagram"></i>
+        </div>
+        <div class="navigation__menu_search">
+          <i class="navigation__menu_search__icon fa fa-search"></i>
+        </div>
+      </div>
+      <div class="navigation__logo">
+        <img
+          class="navigation__logo__img"
+          src='../../resources/logo.png'
+        />
+      </div>
+    </div>
+    <div class="mobile-navigation">
+      mobile
+    </div>
+  </body>
+</html>
