@@ -19,10 +19,64 @@
         display: inline;
       }
       .dropdown {
-        /* display: none; */
+        display: none;
+        top: 16px;
+        left: 0;
+
         position: absolute;
-        background: white;
+        background: #F2EADF;
+        min-width: 150px;
+        list-style: none;
+        padding: 0;
+        margin-left: 16px;
       }
+      .dropdown__item {
+        padding: 8px 4px;
+        border-bottom: 1px solid #fff;
+      }
+      .dropdown__item:last-child {
+        border: 0;
+      }
+
+      /* top, font-size, padding */
+      .dropdown_wrapper:hover > .mobile_dropdown {
+        display: inline;
+      }
+      .mobile_dropdown {
+        display: none;
+        min-width: 100vw;
+        top: 180px;
+        left: 0;
+        margin: 0;
+        background: #D3B498;
+        position: absolute;
+        list-style: none;
+        padding: 0;
+      }
+      .mobile_dropdown__item {
+        padding: 16px 8px;
+        font-size: 28px;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.8);
+        padding-left: 50px;
+        border-bottom: 1px solid #fff;
+      }
+      .mobile_dropdown > a {
+        text-decoration: none;
+      }
+      .mobile_dropdown > a:last-child {
+        border: 0;
+      }
+      @media only screen and (max-width: 376px){
+        .mobile_dropdown {
+          top: 100px;
+        }
+        .mobile_dropdown__item {
+          padding: 16px 0px 16px 44px;
+          font-size: 20px;
+        }
+      }
+
 
       /* media query */
       @media only screen and (min-width: 769px) {
@@ -41,7 +95,7 @@
           display: none;
         }
         .mobile-navigation {
-          display: inline;
+          display: flex;
         }
       }
 
@@ -100,9 +154,54 @@
       .navigation__logo__img {
         margin-top: -24px;
       }
+      .fa-angle-down {
+        margin-left: 8px;
+        font-weight: bolder;
+      }
 
+      /* mobile-navigation */
+      .mobile-navigation__logo {
+        flex-grow: 1;
+        justify-content: center;
+        display: flex;
+        margin-top: -32px;
+      }
+
+      .mobile-navigation__burger-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+      }
+
+      .mobile-navigation__search {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+      }
+
+      /* Ipad navigation classes */
+      @media only screen and (min-width: 377px) {
+        .mobile-navigation__logo > img {
+          width: 250px;
+        }
+        .mobile-navigation .icon {
+          font-size: 30px;
+          font-weight: 900;
+        }
+      }
       /* mobile navigation classes */
-
+      @media only screen and (max-width: 376px) {
+        .mobile-navigation__logo > img {
+          width: 150px;
+        }
+        .mobile-navigation .icon {
+          font-size: 20px;
+          font-weight: 900;
+        
+        }
+      }
     </style>
   </head>
   <body>
@@ -113,12 +212,12 @@
           <a class="navigation__menu__pages__link" href="#">About</a>
           <a class="navigation__menu__pages__link" href="#">Photography</a>
           <a class="navigation__menu__pages__link dropdown_wrapper" href="#">
-            Destinations
+            Destinations <i class="fa fa-angle-down"></i>
             <ul class="dropdown">
-              <li>Southbank</li>
-              <li>Botanic Garden</li>
-              <li>Brisbane City</li>
-              <li>Kangaroo Point</li>
+              <li class="dropdown__item">Southbank</li>
+              <li class="dropdown__item">Botanic Garden</li>
+              <li class="dropdown__item">Brisbane City</li>
+              <li class="dropdown__item">Kangaroo Point</li>
             </ul>
           </a>
         </div>
@@ -138,7 +237,33 @@
       </div>
     </div>
     <div class="mobile-navigation">
-      mobile
+      <div class="mobile-navigation__burger-menu dropdown_wrapper">
+        <i class="fa fa-bars icon"></i>
+        <ul class="mobile_dropdown">
+          <a href='#'>
+            <li class="mobile_dropdown__item">Home</li>
+          </a>
+          <a href='#'>
+            <li class="mobile_dropdown__item">About</li>
+          </a>
+          <a href='#'>
+            <li class="mobile_dropdown__item">Photography</li>
+          </a>
+          <a href="#">
+            <li class="mobile_dropdown__item">
+              Destinations
+            </li>
+          </a>
+        </ul>
+      </div>
+      <div class="mobile-navigation__logo">
+        <img
+          class="mobile-navigation__logo__img"
+          src="../../resources/logo.png"/>
+      </div>
+      <div class="mobile-navigation__search">
+        <i class="fa fa-search icon"></i>
+      </div>
     </div>
   </body>
 </html>
